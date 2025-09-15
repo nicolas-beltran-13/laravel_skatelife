@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Administrador;
+use App\Models\Moderador;
+use App\Models\Cliente;
 
 class Usuario extends Authenticatable
 {

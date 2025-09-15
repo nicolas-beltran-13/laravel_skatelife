@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Publicacion;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class PublicacionController extends Controller
 {
@@ -122,7 +124,7 @@ class PublicacionController extends Controller
         // Por ejemplo, agregar a una lista de comentarios
         $comentarios = $publicacion->comentarios;
         $nuevoComentario = [
-            'usuario_id' => auth()->id(),
+            'usuario_id' => Auth::id() ?? 0, // Si no hay usuario autenticado, usa 0
             'contenido' => $request->comentario,
             'fecha' => now()
         ];
